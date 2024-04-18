@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function Recorder() {
+function Recorder({uploadAudio}: { uploadAudio: (blob: Blob) => void}) {
   return (
     <div className="flex flex-center justify-center text-white">
       <Image
