@@ -1,11 +1,15 @@
+"use client";
+
 import { SettingsIcon } from "lucide-react";
 import Image from "next/image";
 import Messages from "@/components/Messages";
+import Recorder from "@/components/Recorder";
+import { useRef } from "react";
 
 export default function Home() {
+  const fileRef = useRef<HTMLInputElement | null>(null);
   return (
-    <main className="bg-black h-screen overflow-y-scroll-auto">
-      <h1>Lets build an AI Assistant!</h1>
+    <main className="bg-black h-screen overflow-y-scroll">
       {/* Header */}
       <header className="flex justify-between fixed top-0 text-white w-full p-5">
         <Image
@@ -23,14 +27,14 @@ export default function Home() {
       {/* Form */}
       <form className="flex flex-col bg-black">
         <div className="flex-1 bg-gradient-to-b from-purple-500 to-black">
-          {" "}
-          <Messages />{" "}
+          <Messages />
         </div>
         {/*Hidden fields*/}
-        <input type="file" />
+        <input type="file" hidden ref={fileRef} />
         <button type="submit" hidden />
         <div className="fixed bottom-0 w-full overflow-hidden bg-black rounded-t-3xl">
           {/*recorder*/}
+          <Recorder />
           <div>{/*voice synthesizer*/}</div>
         </div>
       </form>
