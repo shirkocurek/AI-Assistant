@@ -8,6 +8,7 @@ import { useRef } from "react";
 
 export default function Home() {
   const fileRef = useRef<HTMLInputElement | null>(null);
+  const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   return (
     <main className="bg-black h-screen overflow-y-scroll">
       {/* Header */}
@@ -31,7 +32,7 @@ export default function Home() {
         </div>
         {/*Hidden fields*/}
         <input type="file" hidden ref={fileRef} />
-        <button type="submit" hidden />
+        <button type="submit" hidden ref={submitButtonRef} />
         <div className="fixed bottom-0 w-full overflow-hidden bg-black rounded-t-3xl">
           {/*recorder*/}
           <Recorder />
